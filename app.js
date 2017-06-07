@@ -8,8 +8,10 @@ const app = {
     addDino(ev){
         //console.log('submitted!')
         ev.preventDefault()
-        const dinoName=ev.target.dinoName.value
-        console.log(dinoName)
+        const dino = {
+            name: ev.target.dinoName.value,
+        }
+        console.log(dino.name)
     },
 }
 
