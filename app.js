@@ -7,7 +7,7 @@ const app = {
        this.template= document.querySelector(formSelector.templateSelector)
        document
         .querySelector(formSelector.formSelector)
-        .addEventListener('submit', this.addDino.bind(this))
+        .addEventListener('submit', this.addDinoFromForm.bind(this))
 
         document
         .querySelector(formSelector.formSelector)
@@ -23,24 +23,29 @@ const app = {
     load(){
         //load JSON from localStorage
         const dinoJSON=localStorage.getItem('dinos')
-
+        console.log(dinoJSON)
         //convert the JSON back into an array
         const dinoArray=JSON.parse(dinoJSON)
 
         //set this.dinos with the dinos from that array
-        dinoArray
-        .reverse()
-        .map(this.addDino.bind(this))
+        if (dinoArray){
+            dinoArray
+            .reverse()
+            .map(this.addDino.bind(this))
+        }
     },
 
-    addDino(){
+    addDino(dino){
         const listItem = this.renderListItem(dino)
         this.list.insertBefore(listItem, this.list.firstChild)
 
         this.dinos.unshift(dino)
-        localStorage.setItem('dinos',this.dinos)
+        this.save()
 
         ++ this.max
+    },
+    save(){
+        localStorage.setItem('dinos',JSON.stringify(this.dinos))
     },
 
     addDinoFromForm(ev){
@@ -53,6 +58,7 @@ const app = {
         }
       //  console.log(dino.name, dino.id)
         ev.target.reset()
+        this.addDino(dino)
     },
 
     renderListItem(dino){
