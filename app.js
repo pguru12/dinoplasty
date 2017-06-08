@@ -47,7 +47,7 @@ const app = {
 
         item
             .querySelector('button.remove')
-            .addEventListener('click', this.removeDino)
+            .addEventListener('click', this.removeDino.bind(this))
 
         return item
         //item.textContent=dino.name
@@ -68,6 +68,18 @@ const app = {
     removeDino(ev){
         const listItem = ev.target.closest('.dino')
         listItem.remove()
+
+        for (let i = 0; i<this.dinos.length; i++){
+            const currentId = this.dinos[i].id.toString()
+            if (listItem.dataset.id===currentId){
+                this.dinos.splice(i, 1)
+                break;
+                //console.log('found it')
+            }
+            //console.log(this.dinos[i].id)
+        }
+
+        //this.dinos.splice(?, 1)
         //console.log('remove!')
     },
 }
