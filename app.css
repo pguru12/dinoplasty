@@ -6,3 +6,7 @@ h1 {
     font: 'Times New Roman';
     color: royalblue;
 }
+.template {
+    display: none;
+    visibility: hidden;
+}
