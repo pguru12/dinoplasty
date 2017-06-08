@@ -12,3 +12,6 @@ h1 {
 .actions {
     float: right;
 }
+.dinos {
+    clear: both;
+}
