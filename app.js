@@ -32,6 +32,7 @@ const app = {
       this.list.insertBefore(listItem, this.list.firstChild)
 
       this.dinos.unshift(dino)
+      localStorage.setItem('dinos',this.dinos)
 
         ++ this.max
         ev.target.reset()
@@ -78,7 +79,8 @@ const app = {
             }
             //console.log(this.dinos[i].id)
         }
-
+        
+        this.save()
         //this.dinos.splice(?, 1)
         //console.log('remove!')
     },
