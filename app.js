@@ -28,7 +28,7 @@ const app = {
         }
       //  console.log(dino.name, dino.id)
       const listItem = this.renderListItem(dino)
-      this.list.appendChild(listItem)
+      this.list.insertBefore(listItem, this.list.firstChild)
 
       this.dinos.push(dino)
 
