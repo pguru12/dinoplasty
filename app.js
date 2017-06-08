@@ -33,6 +33,7 @@ const app = {
 
       // todo: Add dino to this.dinos
       this.dinos.push(listItem)
+     // window.localStorage(listItem)
 
         ++ this.max
     },
@@ -41,13 +42,18 @@ const app = {
         const item=document.createElement('li')
         item.textContent=dino.name
         var promoteButton = document.createElement("button")
-        promoteButton.innerHTML="Promote"
-        var deleteButton = document.createElement("reset")
-        deleteButton.innerHTML="Remove"
+        promoteButton.innerHTML=" Promote "
+        var deleteButton = document.createElement("button")
+        deleteButton.innerHTML=" Remove "
+        var upButton = document.createElement("button")
+        upButton.innerHTML=" Move up "
+        var downButton = document.createElement("button")
+        downButton.innerHTML=" Move down "
         item.appendChild(promoteButton)
-        document.querySelector(addEventListener('button', this.addDino.bind(this)))
-        document.querySelector(addEventListener('reset', this.addDino.unbind(this)))
         item.appendChild(deleteButton)
+        item.appendChild(upButton)
+        item.appendChild(downButton)
+        document.querySelector(addEventListener('button', this.addDino.bind(this)))
         return item
     }
 }
