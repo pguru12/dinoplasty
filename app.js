@@ -7,6 +7,9 @@ const app = {
         document
         .querySelector(formSelector.formSelector)
         .addEventListener('submit', this.addDino.bind(this))
+
+        document
+        .querySelector(formSelector.formSelector)
         // document
         // .querySelector(formSelector.formSelector)
         // .addEventListener('button', this.addDino.bind(this))
@@ -36,6 +39,7 @@ const app = {
      // window.localStorage(listItem)
 
         ++ this.max
+        ev.target.reset()
     },
 
     renderListItem(dino){
@@ -46,9 +50,9 @@ const app = {
         var deleteButton = document.createElement("button")
         deleteButton.innerHTML=" Remove "
         var upButton = document.createElement("button")
-        upButton.innerHTML=" Move up "
+        upButton.innerHTML=" Up "
         var downButton = document.createElement("button")
-        downButton.innerHTML=" Move down "
+        downButton.innerHTML=" Down "
         item.appendChild(promoteButton)
         item.appendChild(deleteButton)
         item.appendChild(upButton)
