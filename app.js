@@ -29,14 +29,8 @@ const app = {
       //  console.log(dino.name, dino.id)
       const listItem = this.renderListItem(dino)
       this.list.appendChild(listItem)
-    //   var button = document.createElement("button")
-    //   button.innerHTML="Promote"
-    //   var button = document.createElement("button")
-    //   button.innerHTML="Remove"
 
-      // todo: Add dino to this.dinos
-      this.dinos.push(listItem)
-     // window.localStorage(listItem)
+      this.dinos.push(dino)
 
         ++ this.max
         ev.target.reset()
