@@ -7,6 +7,12 @@ const app = {
         document
         .querySelector(formSelector.formSelector)
         .addEventListener('submit', this.addDino.bind(this))
+        document
+        .querySelector(formSelector.formSelector)
+        .addEventListener('button', this.addDino.bind(this))
+        document
+        .querySelector(formSelector.formSelector)
+        .addEventListener('reset', this.addDino.unbind(this))
     },
 
     addDino(ev){
@@ -20,6 +26,10 @@ const app = {
       //  console.log(dino.name, dino.id)
       const listItem = this.renderListItem(dino)
       this.list.appendChild(listItem)
+    //   var button = document.createElement("button")
+    //   button.innerHTML="Promote"
+    //   var button = document.createElement("button")
+    //   button.innerHTML="Remove"
 
       // todo: Add dino to this.dinos
       this.dinos.push(listItem)
