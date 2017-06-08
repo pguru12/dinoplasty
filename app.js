@@ -38,30 +38,44 @@ const app = {
     },
 
     renderListItem(dino){
-        const item=document.createElement('li')
-        item.textContent=dino.name
+        const item=this.template.cloneNode(true)
+        item.classList.remove('template')
         item.dataset.id=dino.id
-        var promoteButton = document.createElement("button")
-        promoteButton.innerHTML=" Promote "
-        var deleteButton = document.createElement("button")
-        deleteButton.innerHTML=" Remove "
-        var upButton = document.createElement("button")
-        upButton.innerHTML=" Up "
-        var downButton = document.createElement("button")
-        downButton.innerHTML=" Down "
-        item.appendChild(promoteButton)
-        item.appendChild(deleteButton)
-        item.appendChild(upButton)
-        item.appendChild(downButton)
-        document.querySelector(addEventListener('button', this.addDino.bind(this)))
+        item
+        .querySelector('.dino-name')
+        .textContent=dino.name
+
+        item
+            .querySelector('button.remove')
+            .addEventListener('click', this.removeDino)
+
         return item
-    }
+        //item.textContent=dino.name
+        // var promoteButton = document.createElement("button")
+        // promoteButton.innerHTML=" Promote "
+        // var deleteButton = document.createElement("button")
+        // deleteButton.innerHTML=" Remove "
+        // var upButton = document.createElement("button")
+        // upButton.innerHTML=" Up "
+        // var downButton = document.createElement("button")
+        // downButton.innerHTML=" Down "
+        // item.appendChild(promoteButton)
+        // item.appendChild(deleteButton)
+        // item.appendChild(upButton)
+        // item.appendChild(downButton)
+        // document.querySelector(addEventListener('button', this.addDino.bind(this)))
+    },
+    removeDino(ev){
+        const listItem = ev.target.closest('.dino')
+        listItem.remove()
+        //console.log('remove!')
+    },
 }
 
 app.init({
     formSelector: '#dino-form',
     listSelector: '#dino-list',
-    templateSelector: '#dino-template',
+    templateSelector: '.dino.template',
 })
 
 // function submitHander(ev){

@@ -4,9 +4,11 @@ body {
 }
 h1 {
     font: 'Times New Roman';
-    color: royalblue;
+    color: indianred;
 }
 .template {
     display: none;
-    visibility: hidden;
+}
+.actions {
+    float: right;
 }
