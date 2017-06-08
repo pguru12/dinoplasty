@@ -7,12 +7,12 @@ const app = {
         document
         .querySelector(formSelector.formSelector)
         .addEventListener('submit', this.addDino.bind(this))
-        document
-        .querySelector(formSelector.formSelector)
-        .addEventListener('button', this.addDino.bind(this))
-        document
-        .querySelector(formSelector.formSelector)
-        .addEventListener('reset', this.addDino.unbind(this))
+        // document
+        // .querySelector(formSelector.formSelector)
+        // .addEventListener('button', this.addDino.bind(this))
+        // document
+        // .querySelector(formSelector.formSelector)
+        // .addEventListener('reset', this.addDino.unbind(this))
     },
 
     addDino(ev){
@@ -40,6 +40,14 @@ const app = {
     renderListItem(dino){
         const item=document.createElement('li')
         item.textContent=dino.name
+        var promoteButton = document.createElement("button")
+        promoteButton.innerHTML="Promote"
+        var deleteButton = document.createElement("reset")
+        deleteButton.innerHTML="Remove"
+        item.appendChild(promoteButton)
+        document.querySelector(addEventListener('button', this.addDino.bind(this)))
+        document.querySelector(addEventListener('reset', this.addDino.unbind(this)))
+        item.appendChild(deleteButton)
         return item
     }
 }
