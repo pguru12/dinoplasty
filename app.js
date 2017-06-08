@@ -1,23 +1,28 @@
 const app = {
     max: 0,
-    init: function(formSelector){
+    init(formSelector){
+        this.dinos=[]
         this.max=0
-        this.list = document.querySelector(selectors.listSelector)
+        this.list = document.querySelector(formSelector.listSelector)
         document
-        .querySelector(selectors.formSelector)
-        .addEventListener('submit', this.addDino.bind)
+        .querySelector(formSelector.formSelector)
+        .addEventListener('submit', this.addDino.bind(this))
     },
 
     addDino(ev){
         //console.log('submitted!')
         ev.preventDefault()
-
+        const dinoName = ev.target.dinoName.value
         const dino = {
             id: this.max+1,
             name: ev.target.dinoName.value,
         }
       //  console.log(dino.name, dino.id)
-      console.log(this.renderListItem(dino))
+      const listItem = this.renderListItem(dino)
+      this.list.appendChild(listItem)
+
+      // todo: Add dino to this.dinos
+      this.dinos.push(listItem)
 
         ++ this.max
     },
@@ -30,5 +35,27 @@ const app = {
 }
 
 app.init({
-    formSelector: '#dino-form'
+    formSelector: '#dino-form',
+    listSelector: '#dino-list',
 })
+
+// function submitHander(ev){
+//     ev.preventDefault()
+//     const f = 
+//     const details=document.querySelector('#lister')
+//     const dino = f.dinoName.value
+
+//     // const boldName = document.createElement('strong')
+//     // boldName.textContent = name
+//    const nameItem = document.createElement('li')
+//    nameItem.textContent = `${dino}`
+
+// //    const list = document.createElement('ul')
+// //    list.appendChild(nameItem)
+
+//    lists.appendChild(nameItem)
+//   // lists.insertBefore(list, nameItem)
+//   console.log('I got here')
+// }
+
+//dinoName.addEventListener('submit', submitHander)
