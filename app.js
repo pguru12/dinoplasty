@@ -17,9 +17,33 @@ const app = {
         // document
         // .querySelector(formSelector.formSelector)
         // .addEventListener('reset', this.addDino.unbind(this))
+        this.load()
     },
 
-    addDino(ev){
+    load(){
+        //load JSON from localStorage
+        const dinoJSON=localStorage.getItem('dinos')
+
+        //convert the JSON back into an array
+        const dinoArray=JSON.parse(dinoJSON)
+
+        //set this.dinos with the dinos from that array
+        dinoArray
+        .reverse()
+        .map(this.addDino.bind(this))
+    },
+
+    addDino(){
+        const listItem = this.renderListItem(dino)
+        this.list.insertBefore(listItem, this.list.firstChild)
+
+        this.dinos.unshift(dino)
+        localStorage.setItem('dinos',this.dinos)
+
+        ++ this.max
+    },
+
+    addDinoFromForm(ev){
         //console.log('submitted!')
         ev.preventDefault()
         const dinoName = ev.target.dinoName.value
@@ -28,13 +52,6 @@ const app = {
             name: ev.target.dinoName.value,
         }
       //  console.log(dino.name, dino.id)
-      const listItem = this.renderListItem(dino)
-      this.list.insertBefore(listItem, this.list.firstChild)
-
-      this.dinos.unshift(dino)
-      localStorage.setItem('dinos',this.dinos)
-
-        ++ this.max
         ev.target.reset()
     },
 
@@ -79,7 +96,7 @@ const app = {
             }
             //console.log(this.dinos[i].id)
         }
-        
+
         this.save()
         //this.dinos.splice(?, 1)
         //console.log('remove!')

@@ -19,3 +19,13 @@ Dinosaurs, yay!
 #### Super mega bonus credit hyper fighting
 *Persist the dinosaur data using `window.localStorage`.
 The dinosaurs should stay ibn the list even when the page is refreshed.
+
+##Day 4 HMWK
+*Fix issues with dino id values, results of removing wrong dinosaur from array
+###Bonus Credit
+*Add another field to form, and make sure the data (like eating habits, era in which it lived, etc.) also persists across page loads
+*Make it look nice
+###Super Mega Bonus Credit
+*Edit names of dinosaurs already in list (make sure name changes persist across page loads). _content editable
+###Super Hyper Fighting
+*Have a good weekend
