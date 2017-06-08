@@ -39,6 +39,7 @@ const app = {
     renderListItem(dino){
         const item=document.createElement('li')
         item.textContent=dino.name
+        item.dataset.id=dino.id
         var promoteButton = document.createElement("button")
         promoteButton.innerHTML=" Promote "
         var deleteButton = document.createElement("button")
