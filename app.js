@@ -48,15 +48,15 @@ const app = {
     save(){
         localStorage.setItem('dinos',JSON.stringify(this.dinos))
     },
-    addDiet(diet){
-        const listItem = this.renderListItem(diet)
-        this.list.insertBefore(listItem, this.list.firstChild)
+    // addDiet(diet){
+    //     const listItem = this.renderListItem(diet)
+    //     this.list.insertBefore(listItem, this.list.firstChild)
 
-        this.dinos.unshift(diet)
-        this.save()
+    //     this.dinos.unshift(diet)
+    //     this.save()
 
-        //++ this.max
-    },
+    //     //++ this.max
+    // },
     save(){
         localStorage.setItem('dinos',JSON.stringify(this.dinos))
     },
@@ -66,10 +66,12 @@ const app = {
         ev.preventDefault()
         const dinoName = ev.target.dinoName.value
         const dietName = ev.target.dietName.value
+        const periodName = ev.target.periodName.value
         const dino = {
             id: this.max+1,
             name: ev.target.dinoName.value,
             diet: ev.target.dietName.value,
+            period: ev.target.periodName.value,
         }
         console.log(dino.name, dino.id)
         ev.target.reset()
@@ -86,6 +88,9 @@ const app = {
         item
         .querySelector('.diet-name')
         .textContent=`(${dino.diet})`
+        item
+        .querySelector('.period-name')
+        .textContent=`(${dino.period} Period)`
         console.log('submitted')
         item
             .querySelector('button.remove')
