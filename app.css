@@ -45,3 +45,10 @@ span {
     background-color: purple;
     border-color: indigo;
 }
+
+.dino:first-child .move-up,
+.dino:last-child .move-down {
+    background-color: #ddd;
+    color: #eee;
+    cursor: not-allowed;
+}
