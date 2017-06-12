@@ -43,7 +43,9 @@ const app = {
         this.dinos.unshift(dino)
         this.save()
 
-        ++ this.max
+        if (dino.id>this.max){
+            this.max=dino.id;
+        }
     },
     save(){
         localStorage.setItem('dinos',JSON.stringify(this.dinos))
