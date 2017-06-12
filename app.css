@@ -6,14 +6,25 @@ h1 {
     font: 'Times New Roman';
     color: indianred;
 }
-.template {
+.dino.template {
     display: none;
 }
 .actions {
     float: right;
 }
-.dino {
-    clear: both;
+.dino { 
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+}
+
+.dino + .dino {
+    border-top: none;
+}
+
+.dino-name {
+    flex-grow: 1;
 }
 
 .div {
@@ -23,4 +34,8 @@ h1 {
 span {
     font: 'Times New Roman';
     color: yellow;
+}
+
+.actions.button-group {
+    margin-bottom: 0;
 }
