@@ -29,3 +29,9 @@ The dinosaurs should stay ibn the list even when the page is refreshed.
 *Edit names of dinosaurs already in list (make sure name changes persist across page loads). _content editable
 ###Super Hyper Fighting
 *Have a good weekend
+
+## Day 6 HMWK
+
+Categorize! Separate dino by era, diet, or whatever! Make a whole new thing with categories like messages separated into channels!
+
+Or just make separate lists based on second input field!
