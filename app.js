@@ -85,6 +85,7 @@ const app = {
         item
         .querySelector('.dino-name')
         .textContent=dino.name
+        .addEventListener('keypress', this.saveOnEnter.bind(this))
         item
         .querySelector('.diet-name')
         .textContent=`(${dino.diet})`
@@ -111,6 +112,13 @@ const app = {
         return item
         //item.textContent=dino.name
     },
+    saveOnEnter(dino, ev){
+        if (ev.key==='Enter'){
+            this.editDino(dino, ev)
+        }else {
+            console.log('nope')
+        }
+    },
 
     editDino(dino, ev){
         //console.log(dino)
@@ -118,7 +126,7 @@ const app = {
         const nameField = listItem.querySelector('.dino-name')
         
         console.log(ev.target)
-        const btn = ev.currentTarget
+        const btn = listItem.querySelector('.dino-name')
         const icon = btn.querySelector('i.fa')
 
         if (nameField.isContentEditable){
