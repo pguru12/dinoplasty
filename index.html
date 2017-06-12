@@ -37,10 +37,17 @@
         <div class="row">
             <div class="medium-8 medium-offset-2 column">
                 <ul id="dino-list" class="no-bullet">
-                    <li class="dino template">
-                        <div contenteditable="true">This can be edited. <span class="dino-name"></span></div>
-                        <div contenteditable="true">This can be edited. <span class="diet-name"></span></div>
-                        <div contenteditable="true">This can be edited. <span class="period-name"></span></div>
+                    
+                </ul>
+            </div>
+        </div>
+        <li class="dino template">
+                        <span class="dino-name"></span>
+                            <button class="success edit button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                        <span class="diet-name"></span>
+                            <button class="success edit button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                        <span class="period-name"></span>
+                            <button class="success edit button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                         <span class="actions button-group">
                             <button class="fav button">
                                 <i class="fa fa-star-half-o" aria-hidden="true"></i>
@@ -48,17 +55,14 @@
                             <button class="remove button alert">
                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                                 </button>
-                            <button class="promote button">
+                            <button class="move-up button">
                                 <i class="fa fa-upload" aria-hidden="true"></i>
                             </button>
-                            <button class="demote button alert">
+                            <button class="move-down button">
                                 <i class="fa fa-cloud-download" aria-hidden="true"></i>
                             </button>
                         </span>
                     </li>
-                </ul>
-            </div>
-        </div>
         <!--<div data-breakfast="granola bar">Pranav</div>
         div[data-breakfast="granola bar"]
         input[autofocus]-->

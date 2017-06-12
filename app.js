@@ -104,10 +104,27 @@ const app = {
         item
             .querySelector('button.move-down')
             .addEventListener('click', this.moveUp.bind(this, dino))
+        item
+            .querySelector('button.edit')
+            .addEventListener('click', this.editDino.bind(this, dino))
 
         return item
         //item.textContent=dino.name
     },
+    editDino(dino, ev){
+        //console.log(dino)
+        const listItem = ev.target.closest('.dino')
+        const nameField = listItem.querySelector('.dino-name')
+        if (nameField.isContentEditable){
+            nameField.contentEditable = false
+            dino.name=nameField.textContent
+            this.save()
+        }
+        else {
+        nameField.contentEditable = true;
+        }
+    }
+
     favDino(dino, ev){
        // console.log(arguments)
         //console.log('Fav')
