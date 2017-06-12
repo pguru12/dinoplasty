@@ -22,6 +22,14 @@
                     </button>
                     </div>
                     </div>
+                    <div class="input-group">
+                    <input type="text" class="input-group-field" name="dietName" placeholder="Name a diet" autofocus required>
+                    <!--<div class="input-group-button">
+                    <button class="button success" type="button">
+                        Add diet
+                    </button>-->
+                    </div>
+                    </div>
                 </form>
                 <img src="https://s-media-cache-ak0.pinimg.com/736x/33/a7/a4/33a7a4fe598c45bc489216feebeb40dd.jpg"/>
             </div>
@@ -30,10 +38,13 @@
             <div class="medium-8 medium-offset-2 column">
                 <ul id="dino-list" class="no-bullet">
                     <li class="dino template">
-                        <span class="dino-name"></span>
+                        <div contenteditable="true">This can be edited. <span class="dino-name"></span></div>
+                        <div contenteditable="true">This can be edited. <span class="diet-name"></span></div>
                         <span class="actions button-group">
-                            <button class="fav button">Fav</button>
+                            <button class="fav button">Favorite</button>
                             <button class="remove button alert">Remove</button>
+                            <button class="promote button">Promote</button>
+                            <button class="demote button alert">Demote</button>
                         </span>
                     </li>
                 </ul>

@@ -8,6 +8,7 @@ const app = {
        document
         .querySelector(formSelector.formSelector)
         .addEventListener('submit', this.addDinoFromForm.bind(this))
+    //    .addEventListener('button', this.addDinoFromForm.bind(this))
 
         document
         .querySelector(formSelector.formSelector)
@@ -47,16 +48,30 @@ const app = {
     save(){
         localStorage.setItem('dinos',JSON.stringify(this.dinos))
     },
+    addDiet(diet){
+        const listItem = this.renderListItem(diet)
+        this.list.insertBefore(listItem, this.list.firstChild)
+
+        this.dinos.unshift(diet)
+        this.save()
+
+        //++ this.max
+    },
+    save(){
+        localStorage.setItem('dinos',JSON.stringify(this.dinos))
+    },
 
     addDinoFromForm(ev){
-        //console.log('submitted!')
+        console.log('submitted!')
         ev.preventDefault()
         const dinoName = ev.target.dinoName.value
+        const dietName = ev.target.dietName.value
         const dino = {
             id: this.max+1,
             name: ev.target.dinoName.value,
+            diet: ev.target.dietName.value,
         }
-      //  console.log(dino.name, dino.id)
+        console.log(dino.name, dino.id)
         ev.target.reset()
         this.addDino(dino)
     },
@@ -68,26 +83,16 @@ const app = {
         item
         .querySelector('.dino-name')
         .textContent=dino.name
-
+        item
+        .querySelector('.diet-name')
+        .textContent=`(${dino.diet})`
+        console.log('submitted')
         item
             .querySelector('button.remove')
             .addEventListener('click', this.removeDino.bind(this))
 
         return item
         //item.textContent=dino.name
-        // var promoteButton = document.createElement("button")
-        // promoteButton.innerHTML=" Promote "
-        // var deleteButton = document.createElement("button")
-        // deleteButton.innerHTML=" Remove "
-        // var upButton = document.createElement("button")
-        // upButton.innerHTML=" Up "
-        // var downButton = document.createElement("button")
-        // downButton.innerHTML=" Down "
-        // item.appendChild(promoteButton)
-        // item.appendChild(deleteButton)
-        // item.appendChild(upButton)
-        // item.appendChild(downButton)
-        // document.querySelector(addEventListener('button', this.addDino.bind(this)))
     },
     removeDino(ev){
         const listItem = ev.target.closest('.dino')
@@ -100,12 +105,12 @@ const app = {
                 break;
                 //console.log('found it')
             }
-            //console.log(this.dinos[i].id)
+            console.log(this.dinos[i].id)
         }
 
         this.save()
         //this.dinos.splice(?, 1)
-        //console.log('remove!')
+        console.log('remove!')
     },
 }
 
@@ -114,24 +119,3 @@ app.init({
     listSelector: '#dino-list',
     templateSelector: '.dino.template',
 })
-
-// function submitHander(ev){
-//     ev.preventDefault()
-//     const f = 
-//     const details=document.querySelector('#lister')
-//     const dino = f.dinoName.value
-
-//     // const boldName = document.createElement('strong')
-//     // boldName.textContent = name
-//    const nameItem = document.createElement('li')
-//    nameItem.textContent = `${dino}`
-
-// //    const list = document.createElement('ul')
-// //    list.appendChild(nameItem)
-
-//    lists.appendChild(nameItem)
-//   // lists.insertBefore(list, nameItem)
-//   console.log('I got here')
-// }
-
-//dinoName.addEventListener('submit', submitHander)

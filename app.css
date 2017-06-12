@@ -15,3 +15,12 @@ h1 {
 .dino {
     clear: both;
 }
+
+.div {
+    color: yellowgreen;
+}
+
+span {
+    font: 'Times New Roman';
+    color: yellow;
+}
