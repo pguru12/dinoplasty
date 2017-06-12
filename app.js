@@ -95,10 +95,27 @@ const app = {
         item
             .querySelector('button.remove')
             .addEventListener('click', this.removeDino.bind(this))
+        item
+            .querySelector('button.fav')
+            .addEventListener('click', this.favDino.bind(this, dino))
 
         return item
         //item.textContent=dino.name
     },
+    favDino(dino, ev){
+       // console.log(arguments)
+        //console.log('Fav')
+        const listItem = ev.target.closest('.dino')
+        dino.fav=!dino.fav
+
+        if (dino.fav){
+            listItem.classList.add('fav')
+        } else {
+            listItem.classList.remove('fav')
+        }
+        this.save()
+    },
+
     removeDino(ev){
         const listItem = ev.target.closest('.dino')
         listItem.remove()
