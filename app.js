@@ -98,6 +98,9 @@ const app = {
         item
             .querySelector('button.fav')
             .addEventListener('click', this.favDino.bind(this, dino))
+        item
+            .querySelector('button.move-up')
+            .addEventListener('click', this.moveUp.bind(this, dino))
 
         return item
         //item.textContent=dino.name
@@ -134,6 +137,23 @@ const app = {
         //this.dinos.splice(?, 1)
         console.log('remove!')
     },
+
+    moveUp(dino, ev){
+        const listItem = ev.target.closest('.dino')
+
+        const index = this.dinos.findIndex((currentDino, i)=>{
+            return currentDino.id === dino.id
+        })
+        if (index>0){
+            this.list.insertBefore(listItem, listItem.previousSibling)
+
+            const previousDino = this.dinos[index - 1]
+            this.dinos[index - 1] = dino
+            this.dinos[index] = previous
+            this.save()
+        }
+
+    }
 }
 
 app.init({
