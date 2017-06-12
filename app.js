@@ -111,19 +111,33 @@ const app = {
         return item
         //item.textContent=dino.name
     },
+
     editDino(dino, ev){
         //console.log(dino)
         const listItem = ev.target.closest('.dino')
         const nameField = listItem.querySelector('.dino-name')
+        
+        console.log(ev.target)
+        const btn = ev.currentTarget
+        const icon = btn.querySelector('i.fa')
+
         if (nameField.isContentEditable){
             nameField.contentEditable = false
+            icon.classList.remove('fa-pencil')
+            icon.classList.add('fa-check')
+            icon.classList.remove('success')
+
             dino.name=nameField.textContent
             this.save()
         }
         else {
-        nameField.contentEditable = true;
+            nameField.contentEditable = true;
+            nameField.focus()
+            icon.classList.remove('fa-pencil')
+            icon.classList.add('fa-check')
+            icon.classList.add('success')
         }
-    }
+    },
 
     favDino(dino, ev){
        // console.log(arguments)
