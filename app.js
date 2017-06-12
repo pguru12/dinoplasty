@@ -87,6 +87,7 @@ const app = {
         item
         .querySelector('.dino-name')
         .textContent=dino.name
+        item
         .addEventListener('keypress', this.saveOnEnter.bind(this))
         item
         .querySelector('.diet-name')

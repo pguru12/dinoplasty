@@ -18,6 +18,7 @@ h1 {
     align-items: center;
     padding: 0.75rem 1.25rem;
     transition: .25s;
+    
 }
 
 .dino + .dino {
@@ -26,6 +27,18 @@ h1 {
 
 .dino-name {
     flex-grow: 1;
+    margin-right: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.diet-name {
+    flex-grow: 1;
+    margin-right: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .div {
@@ -39,8 +52,12 @@ span {
 
 .actions.button-group {
     margin-bottom: 0;
+    white-space: nowrap;
 }
 
+.actions.button {
+    padding: 0.65em 0.8em;
+}
 .dino.fav{
     background-color: purple;
     border-color: indigo;
