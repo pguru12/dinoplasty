@@ -1,6 +1,5 @@
-const app = {
-    max: 0,
-    init(formSelector){
+class App {
+    constructor(formSelector){
         this.dinos=[]
         this.max=0
         this.list = document.querySelector(formSelector.listSelector)
@@ -19,7 +18,7 @@ const app = {
         // .querySelector(formSelector.formSelector)
         // .addEventListener('reset', this.addDino.unbind(this))
         this.load()
-    },
+    }
 
     load(){
         //load JSON from localStorage
@@ -34,7 +33,7 @@ const app = {
             .reverse()
             .map(this.addDino.bind(this))
         }
-    },
+    }
 
     addDino(dino){
         const listItem = this.renderListItem(dino)
@@ -46,10 +45,10 @@ const app = {
         if (dino.id>this.max){
             this.max=dino.id;
         }
-    },
+    }
     save(){
         localStorage.setItem('dinos',JSON.stringify(this.dinos))
-    },
+    }
     // addDiet(diet){
     //     const listItem = this.renderListItem(diet)
     //     this.list.insertBefore(listItem, this.list.firstChild)
@@ -61,8 +60,7 @@ const app = {
     // },
     save(){
         localStorage.setItem('dinos',JSON.stringify(this.dinos))
-    },
-
+    }
     addDinoFromForm(ev){
         console.log('submitted!')
         ev.preventDefault()
@@ -78,7 +76,7 @@ const app = {
         console.log(dino.name, dino.id)
         ev.target.reset()
         this.addDino(dino)
-    },
+    }
 
     renderListItem(dino){
         const item=this.template.cloneNode(true)
@@ -114,19 +112,20 @@ const app = {
 
         return item
         //item.textContent=dino.name
-    },
+    }
     saveOnEnter(dino, ev){
         if (ev.key==='Enter'){
             this.editDino(dino, ev)
         }else {
             console.log('nope')
         }
-    },
+    }
 
     editDino(dino, ev){
         //console.log(dino)
         const listItem = ev.target.closest('.dino')
         const nameField = listItem.querySelector('.dino-name')
+        const dietField = listItem.querySelector('.dino-diet')
         
         console.log(ev.target)
         const btn = listItem.querySelector('.dino-name')
@@ -134,6 +133,7 @@ const app = {
 
         if (nameField.isContentEditable){
             nameField.contentEditable = false
+            dietField.contentEditable = false;
             icon.classList.remove('fa-pencil')
             icon.classList.add('fa-check')
             icon.classList.remove('success')
@@ -143,12 +143,13 @@ const app = {
         }
         else {
             nameField.contentEditable = true;
+            dietField.contentEditable = true;
             nameField.focus()
             icon.classList.remove('fa-pencil')
             icon.classList.add('fa-check')
             icon.classList.add('success')
         }
-    },
+    }
 
     favDino(dino, ev){
        // console.log(arguments)
@@ -162,7 +163,7 @@ const app = {
             listItem.classList.remove('fav')
         }
         this.save()
-    },
+    }
 
     removeDino(ev){
         const listItem = ev.target.closest('.dino')
@@ -181,7 +182,7 @@ const app = {
         this.save()
         //this.dinos.splice(?, 1)
         console.log('remove!')
-    },
+    }
 
     moveUp(dino, ev){
         const listItem = ev.target.closest('.dino')
@@ -198,7 +199,7 @@ const app = {
             this.save()
         }
 
-    },
+    }
     moveDown(dino, ev){
         const listItem = ev.target.closest('.dino')
 
@@ -214,9 +215,9 @@ const app = {
         }
     }
 }
-
-app.init({
+new App({
     formSelector: '#dino-form',
     listSelector: '#dino-list',
     templateSelector: '.dino.template',
 })
+
