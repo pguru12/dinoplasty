@@ -37,13 +37,37 @@ class App {
 
     addDino(dino){
         const listItem = this.renderListItem(dino)
-        this.list.insertBefore(listItem, this.list.firstChild)
+        const listItem2 = this.renderListItem(dino)
+        const listItem3 = this.renderListItem(dino)
+        if (dino.periodName==='Cretaceous'){
+            this.list.insertBefore(listItem, this.list.firstChild)
 
-        this.dinos.unshift(dino)
-        this.save()
+            this.dinos.unshift(dino)
+            this.save()
 
-        if (dino.id>this.max){
-            this.max=dino.id;
+            if (dino.id>this.max){
+                this.max=dino.id;
+            }
+        }
+        else if (dino.periodName==='Jurassic'){
+            this.list.insertBefore(listItem2, this.list.firstChild)
+
+            this.dinos.unshift(dino)
+            this.save()
+
+            if (dino.id>this.max){
+                this.max=dino.id;
+            }
+        }
+        else{
+            this.list.insertBefore(listItem3, this.list.firstChild)
+
+            this.dinos.unshift(dino)
+            this.save()
+
+            if (dino.id>this.max){
+                this.max=dino.id;
+            }
         }
     }
     save(){
@@ -126,6 +150,7 @@ class App {
         const listItem = ev.target.closest('.dino')
         const nameField = listItem.querySelector('.dino-name')
         const dietField = listItem.querySelector('.dino-diet')
+        const periodField = listItem.querySelector('.dino-period')
         
         console.log(ev.target)
         const btn = listItem.querySelector('.dino-name')
@@ -133,7 +158,8 @@ class App {
 
         if (nameField.isContentEditable){
             nameField.contentEditable = false
-            dietField.contentEditable = false;
+            dietField.contentEditable = false
+            periodField.contentEditable = false
             icon.classList.remove('fa-pencil')
             icon.classList.add('fa-check')
             icon.classList.remove('success')
@@ -142,8 +168,9 @@ class App {
             this.save()
         }
         else {
-            nameField.contentEditable = true;
-            dietField.contentEditable = true;
+            nameField.contentEditable = true
+            dietField.contentEditable = true
+            periodField.contentEditable = true
             nameField.focus()
             icon.classList.remove('fa-pencil')
             icon.classList.add('fa-check')

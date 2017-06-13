@@ -50,9 +50,20 @@ h1 {
     text-overflow: ellipsis;
 }
 
+.dino.listItem {
+    color: white;
+}
+
+.dino.listItem2 {
+    color: yellow;
+}
+
+.dino.listItem3 {
+    color: yellowgreen;
+}
 
 .div {
-    background-color: yellowgreen;
+    background-color: green;
 }
 
 span {
