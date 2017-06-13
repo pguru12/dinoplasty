@@ -1,9 +1,10 @@
 body {
     background-image: url("http://www.funny-animalpictures.com/media/content/items/images/funnydinosaurs0045_O.jpg");
     background-color: indianred;
+    font-family: 'Times New Roman'
 }
 h1 {
-    font: 'Times New Roman';
+    font: 'Goudy Stout';
     color: indianred;
 }
 .dino.template {
@@ -18,7 +19,7 @@ h1 {
     align-items: center;
     padding: 0.75rem 1.25rem;
     transition: .25s;
-    
+    background-color: blanchedalmond;
 }
 
 .dino + .dino {
@@ -51,12 +52,12 @@ h1 {
 
 
 .div {
-    color: yellowgreen;
+    background-color: yellowgreen;
 }
 
 span {
     font: 'Times New Roman';
-    color: yellow;
+    color:darkolivegreen;
 }
 
 .actions.button-group {

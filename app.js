@@ -58,9 +58,9 @@ class App {
 
     //     //++ this.max
     // },
-    save(){
-        localStorage.setItem('dinos',JSON.stringify(this.dinos))
-    }
+    // save(){
+    //     localStorage.setItem('dinos',JSON.stringify(this.dinos))
+    // }
     addDinoFromForm(ev){
         console.log('submitted!')
         ev.preventDefault()
@@ -84,15 +84,15 @@ class App {
         item.dataset.id=dino.id
         item
         .querySelector('.dino-name')
-        .textContent=dino.name
+        .textContent=`Name: ${dino.name}`
         item
         .addEventListener('keypress', this.saveOnEnter.bind(this))
         item
         .querySelector('.diet-name')
-        .textContent=`(${dino.diet})`
+        .textContent=`Diet: ${dino.diet}`
         item
         .querySelector('.period-name')
-        .textContent=`(${dino.period} Period)`
+        .textContent=`Period: ${dino.period}`
         console.log('submitted')
         item
             .querySelector('button.remove')
